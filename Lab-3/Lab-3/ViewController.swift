@@ -28,8 +28,8 @@ class ViewController: UIViewController {
         
         userInfoTextView.text = ""
         
-        // only show full name when both full name and last name text field are not empty
-        if firstNameTextField.text != "" && lastNameTextField.text != "" {
+        // only show full name when both full name or last name text field are not empty
+        if firstNameTextField.text != "" || lastNameTextField.text != "" {
             userInfoTextView.text = "Full Name: \(firstNameTextField.text ?? "") \(lastNameTextField.text ?? "")"
         }
         
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         
         outputLabel.isHidden = false
         
-        if checkForMissingData() {
+        if checkForMissingData() == true {
             outputLabel.text = "Complete the missing info!"
             outputLabel.textColor = UIColor.red
         } else {
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
     
     private func setupView() {
         
-        // hidding label inititally
+        // hidding label initially
         outputLabel.isHidden =  true
         
         // adding border to text view
